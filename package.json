@@ -5,7 +5,7 @@
   "main": "most.js",
   "scripts": {
     "test": "jshint . && buster-test",
-    "prepublish": "browserify -s most -o dist/most.js --no-detect-globals most.js && uglifyjs dist/most.js -c -m --source-map dist/most.min.js.map --source-map-url=most.min.js.map --source-map-include-sources -o dist/most.min.js"
+    "prepublish": "webpack --output-library most --output-library-target umd ./most.js --output-file dist/most.js && uglifyjs dist/most.js -c -m --source-map dist/most.min.js.map --source-map-url=most.min.js.map --source-map-include-sources -o dist/most.min.js"
   },
   "repository": {
     "type": "git",
@@ -32,11 +32,11 @@
   "author": "brian@hovercraftstudios.com",
   "license": "MIT",
   "devDependencies": {
-    "browserify": "^10.2.4",
     "buster": "~0.7",
     "jshint": "~2",
     "transducers-js": "^0.4.158",
-    "uglify-js": "^2.4.23"
+    "uglify-js": "^2.4.23",
+    "webpack": "^1.10.1"
   },
   "dependencies": {
     "when": "^3.7.0"
