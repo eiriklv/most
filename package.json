@@ -3,9 +3,12 @@
   "version": "0.14.0",
   "description": "Monadic streams",
   "main": "most.js",
+  "files": [
+	"most.js", "lib/**/*.js"
+  ],
   "scripts": {
     "test": "jshint . && buster-test",
-    "prepublish": "webpack --output-library most --output-library-target umd ./most.js --output-file dist/most.js && uglifyjs dist/most.js -c -m --source-map dist/most.min.js.map --source-map-url=most.min.js.map --source-map-include-sources -o dist/most.min.js"
+    "build": "webpack --output-library most --output-library-target umd ./most.js --output-file dist/most.js && uglifyjs dist/most.js -c 'warnings=false' -m -o dist/most.min.js"
   },
   "repository": {
     "type": "git",
